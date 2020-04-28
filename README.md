@@ -59,6 +59,7 @@ No provider.
 | this\_db\_instance\_port | The database port |
 | this\_db\_instance\_resource\_id | The RDS Resource ID of this instance |
 | this\_db\_instance\_status | The RDS instance status |
+| this\_db\_instance\_username | The master username for the database |
 | this\_db\_parameter\_group\_arn | The ARN of the db parameter group |
 | this\_db\_parameter\_group\_id | The db parameter group id |
 | this\_db\_subnet\_group\_arn | The ARN of the db subnet group |

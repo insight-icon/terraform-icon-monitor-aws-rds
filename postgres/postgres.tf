@@ -14,8 +14,7 @@ provider "postgresql" {
 
 resource "postgresql_database" "my_db" {
   name              = "cachet"
-  owner             = "my_role"
-  template          = "template0"
+  owner             = "cachet"
   lc_collate        = "C"
   connection_limit  = -1
   allow_connections = true
