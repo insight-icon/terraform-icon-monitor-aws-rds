@@ -50,10 +50,39 @@ module "db" {
   tags = module.label.tags
 }
 
-module "postgres" {
-  source = "./postgres"
+//module "postgres" {
+//  source = "./postgres"
+//
+//  host     = module.db.this_db_instance_address
+//  password = module.db.this_db_instance_username
+//  username = module.db.this_db_instance_password
+////  password = var.password
+////  username = var.username
+//}
 
+//variable "password" {}
+//variable "username" {}
+//variable "host" {}
+
+provider "postgresql" {
   host     = module.db.this_db_instance_address
-  password = var.password
-  username = var.username
+  password = module.db.this_db_instance_username
+  username = module.db.this_db_instance_password
+
+  //  host            = var.host
+  //  username        = var.username
+  //  password        = var.password
+
+  port            = 5432
+  database        = "cachet"
+  sslmode         = "require"
+  connect_timeout = 15
+}
+
+resource "postgresql_database" "my_db" {
+  name              = "cachet"
+  owner             = "cachet"
+  lc_collate        = "C"
+  connection_limit  = -1
+  allow_connections = true
 }
